@@ -1,0 +1,30 @@
+Media Server Services and Ports
+===============================
+
+1. Jellyfin
+   - Web UI Port:        8097 (host) -> 8096 (container)
+
+2. Jellyseerr
+   - Web UI Port:        5055
+
+3. qBittorrent
+   - Web UI Port:        8080
+   - Torrent Ports:      6881 TCP/UDP
+
+4. Prowlarr
+   - Web UI Port:        9696
+
+5. Flaresolverr
+   - Web UI Port:        8191
+
+6. Radarr
+   - Web UI Port:        7878
+
+7. Sonarr
+   - Web UI Port:        8989
+
+Notes:
+------
+- Torrent port 6881 is open for both TCP and UDP protocols.
+- Jellyfin transcodes and media libraries are mounted from TrueNAS shares.
+- Restart policy is set to 'unless-stopped' for all containers.
