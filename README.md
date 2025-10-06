@@ -1,43 +1,37 @@
-# 📺 ARR Stack Media Server
-
-A fully containerized media server stack using Docker Compose, based on the popular *Arr* suite with Jellyfin for streaming. Automate your movie and TV show downloads, indexers, and playback — all self-hosted.
-
----
-
-## 📦 Services Included
-
-| Service       | Description |
-|---------------|-------------|
-| **Jellyfin**      | Media server to stream your TV shows and movies |
-| **Jellyseerr**    | Media request manager for Jellyfin |
-| **qBittorrent**   | Torrent downloader with web UI |
-| **Prowlarr**      | Indexer manager for Sonarr, Radarr, etc. |
-| **FlareSolverr**  | Proxy server to bypass Cloudflare protection (used by Prowlarr) |
-| **Radarr**        | Movie manager for automated downloads |
-| **Sonarr**        | TV show manager for automated downloads |
-
----
-
 ## 🚀 Usage
 
-1. **Clone this repository:**
+1. **Clone this repository, create required directories, mount network shares, start the stack, and access services:**
 
    ```bash
    git clone https://github.com/ZBNZGIT/arr-stack-media-server.git
    cd arr-stack-media-server
 
-/config/jellyfin
-/config/jellyseerr
-/config/qbittorrent
-/config/prowlarr
-/config/radarr
-/config/sonarr
-/mnt/truenas/movies
-/mnt/truenas/tvshows
-/mnt/truenas/media-downloads
-/mnt/truenas/jellyfin-transcodes
+   # Create necessary directories (adjust paths as needed)
+   mkdir -p /config/jellyfin
+   mkdir -p /config/jellyseerr
+   mkdir -p /config/qbittorrent
+   mkdir -p /config/prowlarr
+   mkdir -p /config/radarr
+   mkdir -p /config/sonarr
+   mkdir -p /mnt/truenas - Network Share
+   mkdir -p /mnt/truenas/movies - Network Share
+   mkdir -p /mnt/truenas/tvshows - Network Share
+   mkdir -p /mnt/truenas/media-downloads - Network Share
+   mkdir -p /mnt/truenas/jellyfin-transcodes - Network Share
 
-docker-compose up -d
+   # Mount your TrueNAS shares (add these lines to /etc/fstab):
+   #
+   # //10.0.0.84/movies               /mnt/truenas/movies               cifs credentials=/etc/samba/cred,file_mode=0777,dir_mode=0777 0 0
+   # //10.0.0.84/tvshows              /mnt/truenas/tvshows              cifs credentials=/etc/samba/cred,file_mode=0777,dir_mode=0777 0 0
+   # //10.0.0.84/media-downloads      /mnt/truenas/media-downloads      cifs credentials=/etc/samba/cred,file_mode=0777,dir_mode=0777 0 0
+   # //10.0.0.84/jellyfin-transcodes  /mnt/truenas/jellyfin-transcodes  cifs credentials=/etc/samba/cred,file_mode=0777,dir_mode=0777 0 0
+
+   # Then mount all shares:
+   sudo mount -a
+
+   # Start all containers
+   docker-compose up -d
+
 
 | Service      | Port | URL                                            |
 | ------------ | ---- | ---------------------------------------------- |
@@ -48,12 +42,3 @@ docker-compose up -d
 | FlareSolverr | 8191 | [http://localhost:8191](http://localhost:8191) |
 | Radarr       | 7878 | [http://localhost:7878](http://localhost:7878) |
 | Sonarr       | 8989 | [http://localhost:8989](http://localhost:8989) |
-
-
-arr-stack-media-server/
-├── docker-compose.yml         # Main Docker stack
-├── docker-logs-viewer.sh      # Helper script to view container logs
-├── docker-ports.txt           # Port mapping reference
-├── docker-update-all.sh       # Script to update all containers
-
-
