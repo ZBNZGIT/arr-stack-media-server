@@ -13,11 +13,11 @@
    mkdir -p /config/prowlarr
    mkdir -p /config/radarr
    mkdir -p /config/sonarr
-   mkdir -p /mnt/truenas - Network Share
-   mkdir -p /mnt/truenas/movies - Network Share
-   mkdir -p /mnt/truenas/tvshows - Network Share
-   mkdir -p /mnt/truenas/media-downloads - Network Share
-   mkdir -p /mnt/truenas/jellyfin-transcodes - Network Share
+   mkdir -p /mnt/truenas             # Network Share base
+   mkdir -p /mnt/truenas/movies      # Network Share
+   mkdir -p /mnt/truenas/tvshows     # Network Share
+   mkdir -p /mnt/truenas/media-downloads # Network Share
+   mkdir -p /mnt/truenas/jellyfin-transcodes # Network Share
 
    # Mount your TrueNAS shares (add these lines to /etc/fstab):
    #
@@ -31,6 +31,7 @@
 
    # Start all containers
    docker-compose up -d
+
 
 
 | Service      | Port | URL                                            |
