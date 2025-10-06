@@ -18,9 +18,6 @@ A fully containerized media server stack using Docker Compose, based on the popu
 
 ---
 
-
-
-
 ## 🚀 Usage
 
 1. **Clone this repository, create required directories, start the stack, and access services:**
@@ -44,10 +41,11 @@ A fully containerized media server stack using Docker Compose, based on the popu
    # Start all containers
    docker-compose up -d
 
+---
 
-🌐 Access Web Interfaces
+## 🌐 Access Web Interfaces
 
-Once the containers are running, access the services using the URLs below:
+1. **Once the containers are running, access the services using the URLs below:**
 | Service      | Port | URL                                            |
 | ------------ | ---- | ---------------------------------------------- |
 | Jellyfin     | 8097 | [http://localhost:8097](http://localhost:8097) |
