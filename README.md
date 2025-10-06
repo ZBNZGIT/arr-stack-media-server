@@ -1,4 +1,4 @@
-# 📺 arr-stack-media-server
+# 📺 ARR Stack Media Server
 
 A fully containerized media server stack using Docker Compose, based on the popular *Arr* suite with Jellyfin for streaming. Automate your movie and TV show downloads, indexers, and playback — all self-hosted.
 
