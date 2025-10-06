@@ -18,32 +18,7 @@ A fully containerized media server stack using Docker Compose, based on the popu
 
 ---
 
-## 🚀 Usage
-
-1. Clone this repository, create required directories, start the stack, and access services:
-
-```bash
-git clone https://github.com/ZBNZGIT/arr-stack-media-server.git
-cd arr-stack-media-server
-
-# Create necessary directories (adjust paths as needed)
-mkdir -p /config/jellyfin
-mkdir -p /config/jellyseerr
-mkdir -p /config/qbittorrent
-mkdir -p /config/prowlarr
-mkdir -p /config/radarr
-mkdir -p /config/sonarr
-mkdir -p /mnt/truenas/movies
-mkdir -p /mnt/truenas/tvshows
-mkdir -p /mnt/truenas/media-downloads
-mkdir -p /mnt/truenas/jellyfin-transcodes
-
-# Start all containers
-docker-compose up -d
-
-# 🌐 Access Web Interfaces
-
-**Once the containers are running, access the services using the URLs below:**
+## 🌐 Access Web Interfaces
 
 | Service      | Port | URL                                            |
 | ------------ | ---- | ---------------------------------------------- |
@@ -54,9 +29,3 @@ docker-compose up -d
 | FlareSolverr | 8191 | [http://localhost:8191](http://localhost:8191) |
 | Radarr       | 7878 | [http://localhost:7878](http://localhost:7878) |
 | Sonarr       | 8989 | [http://localhost:8989](http://localhost:8989) |
-
-🗂 Mount TrueNAS Shares (Optional)
-
-To mount your TrueNAS shares, add these lines to /etc/fstab:
-
-Then mount all shares with:
