@@ -18,34 +18,35 @@ A fully containerized media server stack using Docker Compose, based on the popu
 
 ---
 
-   git clone https://github.com/ZBNZGIT/arr-stack-media-server.git
-   cd arr-stack-media-server
+git clone https://github.com/ZBNZGIT/arr-stack-media-server.git
+cd arr-stack-media-server
 
-   # Create necessary directories (adjust paths as needed)
-   mkdir -p /config/jellyfin
-   mkdir -p /config/jellyseerr
-   mkdir -p /config/qbittorrent
-   mkdir -p /config/prowlarr
-   mkdir -p /config/radarr
-   mkdir -p /config/sonarr
-   mkdir -p /mnt/truenas             # Network Share base
-   mkdir -p /mnt/truenas/movies      # Network Share
-   mkdir -p /mnt/truenas/tvshows     # Network Share
-   mkdir -p /mnt/truenas/media-downloads # Network Share
-   mkdir -p /mnt/truenas/jellyfin-transcodes # Network Share
+# Create necessary directories (adjust paths as needed)
+mkdir -p /config/jellyfin
+mkdir -p /config/jellyseerr
+mkdir -p /config/qbittorrent
+mkdir -p /config/prowlarr
+mkdir -p /config/radarr
+mkdir -p /config/sonarr
+mkdir -p /mnt/truenas             # Network Share base
+mkdir -p /mnt/truenas/movies      # Network Share
+mkdir -p /mnt/truenas/tvshows     # Network Share
+mkdir -p /mnt/truenas/media-downloads # Network Share
+mkdir -p /mnt/truenas/jellyfin-transcodes # Network Share
 
-   # Mount your TrueNAS shares (add these lines to /etc/fstab):
-   #
-   # //10.0.0.84/movies               /mnt/truenas/movies               cifs credentials=/etc/samba/cred,file_mode=0777,dir_mode=0777 0 0
-   # //10.0.0.84/tvshows              /mnt/truenas/tvshows              cifs credentials=/etc/samba/cred,file_mode=0777,dir_mode=0777 0 0
-   # //10.0.0.84/media-downloads      /mnt/truenas/media-downloads      cifs credentials=/etc/samba/cred,file_mode=0777,dir_mode=0777 0 0
-   # //10.0.0.84/jellyfin-transcodes  /mnt/truenas/jellyfin-transcodes  cifs credentials=/etc/samba/cred,file_mode=0777,dir_mode=0777 0 0
+# Mount your TrueNAS shares (add these lines to /etc/fstab):
+#
+# //10.0.0.84/movies               /mnt/truenas/movies               cifs credentials=/etc/samba/cred,file_mode=0777,dir_mode=0777 0 0
+# //10.0.0.84/tvshows              /mnt/truenas/tvshows              cifs credentials=/etc/samba/cred,file_mode=0777,dir_mode=0777 0 0
+# //10.0.0.84/media-downloads      /mnt/truenas/media-downloads      cifs credentials=/etc/samba/cred,file_mode=0777,dir_mode=0777 0 0
+# //10.0.0.84/jellyfin-transcodes  /mnt/truenas/jellyfin-transcodes  cifs credentials=/etc/samba/cred,file_mode=0777,dir_mode=0777 0 0
 
-   # Then mount all shares:
-   sudo mount -a
+# Then mount all shares:
+sudo mount -a
 
-   # Start all containers
-   docker-compose up -d
+# Start all containers
+docker-compose up -d
+
 
 ## 🚀 Usage
 
