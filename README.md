@@ -43,3 +43,17 @@ A fully containerized media server stack using Docker Compose, based on the popu
 
    # Start all containers
    docker-compose up -d
+
+
+🌐 Access Web Interfaces
+
+Once the containers are running, access the services using the URLs below:
+| Service      | Port | URL                                            |
+| ------------ | ---- | ---------------------------------------------- |
+| Jellyfin     | 8097 | [http://localhost:8097](http://localhost:8097) |
+| Jellyseerr   | 5055 | [http://localhost:5055](http://localhost:5055) |
+| qBittorrent  | 8080 | [http://localhost:8080](http://localhost:8080) |
+| Prowlarr     | 9696 | [http://localhost:9696](http://localhost:9696) |
+| FlareSolverr | 8191 | [http://localhost:8191](http://localhost:8191) |
+| Radarr       | 7878 | [http://localhost:7878](http://localhost:7878) |
+| Sonarr       | 8989 | [http://localhost:8989](http://localhost:8989) |
